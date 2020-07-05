@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    font-size:16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    min-height: 100vh;
+    color:rgb(86,13,13);
+}
+
+a {
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 1.1em;
+    color:rgb(86,13,13);
+    transition:color ease 1s, font-size ease 1s;
+}
+a:hover {
+    color:gray;
+    font-size: 1.2em;
+}
+
+.sideName {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100vh;
+    transform: rotate(-90deg) translate(-42%, -330%);
+    font-size: 7em;
+    font-family: 'Work Sans', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    color:gray;
+}
+
+#main {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 50px repeat(2,250px) 2fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas: "x Image Image y y"
+    "x Image Image Details i"
+    "x Image Image Footer i";
+}
+
+.Image { grid-area: Image;}
+.Image figure {
+    position: relative;
+    bottom:0;
+    height: 100%;
+}
+.Image img {
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    max-width: 500px;
+}
+.Image figcaption {
+    color:grey;
+    position: absolute;
+    bottom: 0;
+    left:10%;
+}
+
+.Details {
+    grid-area: Details;
+    text-align: center;
+}
+
+.Footer {
+    grid-area: Footer;
+    text-align: center;
+    padding:10px;
+}
+
+#title {
+    font-family: 'Shadows Into Light', cursive;
+}
+#img-div {}
+#tribute-info h3 {
+    color:gray;
+    font-weight: lighter;
+}
+#tribute-info section {
+    margin-top:30px
+}
+#tribute-info article {margin-top:10px;}
+footer {}
+
+@media screen and (max-width: 400px) {
+    body {
+        padding-bottom: 2em;
+    }
+    .sideName {
+        width: 100vw;
+        font-size: 40px;
+        transform: rotate(-90deg) translate(-40%, -340%);
+    }
+    #main {
+        max-width: 95%;
+        margin:auto;
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1px 1px;
+        grid-template-areas: "Image" "Details" "Footer";
+    }
+    #img-div {
+        height:100vh;
+        max-height:300px;
+        margin-bottom:100px;
+    }
+    .Image figcaption {
+        color:#acacac;
+        bottom:-30px;
+        opacity: .5;
+    }
+}
