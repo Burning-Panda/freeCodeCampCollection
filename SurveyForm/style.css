@@ -1,0 +1,77 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body {
+    background-color: hsl(0, 7%, 78%);
+    color: hsl(0, 0%, 3%);
+    padding:80px 0;
+    min-height: 100vh;
+    font-size:16px;
+}
+
+.survey {
+    margin:auto;
+    min-height: 50vh;
+    max-width: 800px;
+    background-color:white;
+    padding:30px 50px;
+
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.survey h1, .survey p {
+    text-align: center;
+    margin:20px 0;
+}
+
+[type=text], [type="email"], [type="number"] {
+    width:100%;
+    height: 40px;
+    padding:10px;
+    margin-bottom:20px;
+}
+
+#survey-form input:hover, #survey-form input:focus {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+#survey-form label{
+    font-size: 1.2em;
+}
+
+fieldset.surveyRadios {
+    margin-top:30px;
+    padding-top:10px;
+    border:0;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+}
+fieldset.surveyRadios {
+    height:110px;
+}
+fieldset.surveyRadios div {
+    flex-basis: 18%;
+    text-align: center;
+}
+
+legend {
+    font-size: 1.2em;
+}
+#survey-form .surveyRadios input {
+    display:none;
+}
+#survey-form .surveyRadios label {
+    cursor: pointer;
+    font-size:2.5em;
+    transition: font-size .3s ease;
+    
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+
+#survey-form .surveyRadios input[type="radio"]:checked+label {
+    font-size: 2.7em;
+}
