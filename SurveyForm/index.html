@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>a Survey Form for freeCodeCamp Task</title>
     <meta name="description" content="A survey made for the freeCodeCamp 'Responsive Web Design Projects - Build a Survey Form' task.">
     <meta name="keywords" content="HTML, CSS, form page, Survey Form, Survey page, freeCodeCamp, Responsive Web Design Projects">
     <meta name="author" content="André T. Lønvik">
@@ -12,62 +12,97 @@
 </head>
 <body>
 <section class="survey">
-    <h1 id="title">Send me a feedback</h1>
-    <p id="description">This is purly fictional, and will not do anything if you press the submit button, ;)</p>
-    <form id="survey-form">
-        <label for="name" id="name-label">Your name</label>
-        <input type="text" name="name" id="name" placeholder="John Smith" />
-
-        <label for="email" id="email-label">Your email</label>
-        <input type="email" placeholder="e@mail.com" id="email">
-
-        <label for="number" id="number-label">Your phone number</label>
-        <input type="number" id="number" placeholder="0-99999999" min="0" max="99999999">
-
-        <label for="dropdown" id="dropdown-label"></label>
-        <select id="dropdown" name="dropdown">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="fiat">Fiat</option>
-            <option value="audi">Audi</option>
-        </select>
-
-        <fieldset class="surveyRadios">
-            <legend>How was your experience</legend>
-
+    <header class="surveyHead Primary">
+        <h1 id="title">Send me a feedback</h1>
+        <p id="description">This is purly fictional, and will not do anything if you press the submit button, ;)</p>
+    </header>
+    <article aria-describedby="title">
+        <form id="survey-form">
             <div>
-                <input type="radio" id="1" name="experience" value="1">
-                <label for="1">&#128544;</label>
+                <label for="name" id="name-label">Your name</label>
+                <input type="text" name="name" id="name" placeholder="John Smith" aria-describedby="name-label" required />
+            </div><div>
+                <label for="email" id="email-label">Your email</label>
+                <input type="email" placeholder="e@mail.com" id="email" required>
+            </div><div>
+                <label for="number" id="number-label">Your phone number</label>
+                <input type="number" id="number" placeholder="0-99999999" min="0" max="99999999">
+            </div><div class="dropdown">
+                <label for="dropdown" id="dropdown-label">What brand is your car?</label>
+                <select id="dropdown" name="dropdown">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                </select>
             </div>
-            <div>
-                <input type="radio" id="2" name="experience" value="2">
-                <label for="2">&#128542;</label>
-            </div>
-            <div>
-                <input type="radio" id="3" name="experience" value="3">
-                <label for="3">&#128566;</label>
-            </div>
-            <div>
-                <input type="radio" id="4" name="experience" value="4">
-                <label for="4">&#128515;</label>
-            </div>
-            <div>
-                <input type="radio" id="5" name="experience" value="5">
-                <label for="5">&#128513;</label>
-            </div>
-        </fieldset>
+            <fieldset class="surveyRadios">
+                <legend>How was your experience</legend>
 
-        <fieldset>
-            <legend>Checkboxes</legend>
-            <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
-            <label for="subscribeNews">Subscribe to newsletter?</label>
-        </fieldset>
+                <div>
+                    <input type="radio" id="1" name="experience" value="1" aria-describedby="Experience_Terrible">
+                    <label for="1">&#128544;</label>
+                    <div id="Experience_Terrible">Terrible</div>
+                </div>
+                <div>
+                    <input type="radio" id="2" name="experience" value="2" aria-describedby="Experience_Bad">
+                    <label for="2">&#128542;</label>
+                    <div id="Experience_Bad">Bad</div>
+                </div>
+                <div>
+                    <input type="radio" id="3" name="experience" value="3" aria-describedby="Experience_Ok" checked>
+                    <label for="3">&#128566;</label>
+                    <div id="Experience_Ok">Ok</div>
+                </div>
+                <div>
+                    <input type="radio" id="4" name="experience" value="4" aria-describedby="Experience_good">
+                    <label for="4">&#128515;</label>
+                    <div id="Experience_good">Good</div>
+                </div>
+                <div>
+                    <input type="radio" id="5" name="experience" value="5" aria-describedby="Experience_Great">
+                    <label for="5">&#128513;</label>
+                    <div id="Experience_Great">Great</div>
+                </div>
+            </fieldset>
 
-        <label for="additional-info">Want to tell me somthing else?</label>
-        <textarea id="additional-info" name="additional-info" rows="4" cols="50"></textarea>
+            <fieldset class="surveyCheckboxes">
+                <legend>Checkboxes</legend>
 
-        <button type="submit">Subscribe</button>
-    </form>
+                <label for="subscribeNews">
+                    <input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter">
+                    Subscribe to newsletter?
+                </label>
+
+                <label for="subscribeUpdates">
+                    <input type="checkbox" id="subscribeUpdates" name="subscribeUpdates" value="updates">
+                    Want updates to this app?
+                </label>
+
+                <label for="subscribeDailyUpdates">
+                    <input type="checkbox" id="subscribeDailyUpdates" name="dailyUpdates" value="dailyUpdates">
+                    Send daily updates
+                </label>
+
+
+            </fieldset>
+            <div class="surveyTextarea">
+                <label for="additional-info">Want to tell me something else?</label>
+                <textarea id="additional-info" name="additional-info"></textarea>
+            </div>
+
+
+            <div class="submitting">
+                <a href="#" class="cancel">Cancel and return to previous page</a>
+                <button id="submit" type="submit">Send form</button>
+            </div>
+
+        </form>
+    </article>
 </section>
+
+<link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Abhaya+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 </html>
