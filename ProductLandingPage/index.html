@@ -8,89 +8,234 @@
     <meta name="author" content="André T. Lønvik">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
-<header id="header">
-    <div class="logoContainer">
-        <img src="#" alt="Logo" class="logo" id="header-img">
-    </div>
+<header id="header" class="">
+    <nav id="nav-bar" class="container">
+        <div class="logoContainer">
+            <img src="assets/svgs/iconfinder_Helmet.jpg_2913118.svg" alt="Logo provided by Chanut is Industries at iconfinder.com" class="logo" id="header-img">
+            <span class="Candra">HelmUX</span>
+        </div>
 
-    <nav id="nav-bar">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Nav 2</a></li>
-            <li><a href="#">Nav 3</a></li>
-            <li><a href="#">Nav 4</a></li>
-        </ul>
+        <div class="nav-bar">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#shop" class="nav-link">Shop</a>
+            <a href="#contactUs" class="nav-link">Contact</a>
+        </div>
     </nav>
 </header>
 
-<main>
-    <div class="container">
-        <section class="main-info">
-            <div class="imgContainer">
-                <img src="./pictures/DesignOfEverydayThings.png" alt="Design Of Everyday Things Cover" />
-            </div>
-            <div class="info-text">
-                <div>
-                    <h1>The design of everyday things</h1>
-                    <h3>Norman, Donald A.</h3>
-                    <p>Even the smartest among us can feel inept as we fail to figure out which light switch or oven burner to turn on, or whether to push, pull, or slide a door. The fault, argues this ingenious,even liberating,book, lies not in ourselves, but in product design that ignores the needs of users and the principles of cognitive psychology. ...
-                        <a href="#readMore" class="readMore">Read more</a></p>
-                </div>
-                <div class="price">
-                    <h2>$180.00</h2>
-                    <span class="itemAvailable">Available</span>
-                </div>
-            </div>
-        </section>
+<div class="container splashImg">
+    <div>
+        <h1>UI generator</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquid inventore labore nihil nisi optio suscipit. Animi dolorem, doloremque expedita impedit, ipsa iusto, non obcaecati odio quo tempora temporibus vel.</p>
+        <div>
+            <form id="form" action="https://www.freecodecamp.com/email-submit">
+                <label for="email">Want to hear from us?</label>
+                <input type="email" name="email" id="email" placeholder="your@email.com" value="" required />
+                <input type="submit" value="submit" id="submit">
+            </form>
+        </div>
     </div>
+</div>
 
-    <div class="overflow"></div>
+<main id="main">
+    <section class="container" id="home">
+        Sections
+    </section>
+    <section id="about" class="fullWidth">
+        <div>
+            <h2 class="container">What do we do?</h2>
+            <iframe
+                    id="video"
+                    src="https://www.youtube-nocookie.com/embed/SRec90j6lTY"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    title="What Is UX Design? - A Full Overview"
+                    style="width: 100%;height: 500px;"
+            ></iframe>
+        </div>
+    </section>
 
-
-    <div class="container small">
-        <section class="readMore" id="readMore">
-            <h3>Description</h3>
-            <p>Even the smartest among us can feel inept as we fail to figure out which light switch or oven burner to turn on, or whether to push, pull, or slide a door. The fault, argues this ingenious,even liberating,book, lies not in ourselves, but in product design that ignores the needs of users and the principles of cognitive psychology. The problems range from ambiguous and hidden controls to arbitrary relationships between controls and functions, coupled with a lack of feedback or other assistance and unreasonable demands on memorization. The Design of Everyday Things shows that good, usable design is possible. The rules are simple: make things visible, exploit natural relationships that couple function and control, and make intelligent use of constraints. The goal: guide the user effortlessly to the right action on the right control at the right time.In this entertaining and insightful analysis, cognitive scientist Don Norman hails excellence of design as the most important key to regaining the competitive edge in influencing consumer behaviour. Now fully expanded and updated, with a new introduction by the author, The Design of Everyday Things is a powerful primer on how,and why,some products satisfy customers while others only frustrate them.</p>
-        </section>
-        <section class="infoCards">
-            <div class="cardContainer">
-                <div class="card"></div>
-                <div class="card"></div>
-                <div class="card"></div>
-            </div>
-        </section>
-
-        <section class="prodDetails">
-            <h3 class="detail-text">More Product Details</h3>
-            <div class="details">
-                <div class="detail-item">
-                    ISBN: 9780465050659
+    <section class="container" id="shop">
+        <h2>What can we do for you</h2>
+        <div class="cards">
+            <div class="card">
+                <div class="cardHead">
+                    <img src="assets/svgs/undraw_anonymous_feedback.svg" alt="Get anonymous feedback by unDraw" />
                 </div>
-
-                Publisert 2019
-                Utgave 1. utgave
-                Utgiver Basic Books
-                Aldersnivå Voksen
-                Språk Engelsk
-                Format Heftet
-                Vekt 317 gr
-                Høyde 210 mm
-                Bredde 140 mm
-                Tykkelse 25 mm
-
+                <div class="cardBody">
+                    <h3>Get feedback</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam atque, dolorem eos laboriosam laborum quas quod ullam veniam. Perspiciatis, voluptas!</p>
+                </div>
+                <div class="cardFooter">
+                    <a href="#" class="cardInfoButton">More info</a>
+                </div>
             </div>
-        </section>
-    </div>
+            <div class="card">
+                <div class="cardHead">
+                    <img src="assets/svgs/undraw_develop_app.svg" alt="Develop your app by unDraw">
+                </div>
+                <div class="cardBody">
+                    <h3>Create your app</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium at cumque eligendi excepturi, ipsum quas recusandae repellat temporibus velit.</p>
+                </div>
+                <div class="cardFooter">
+                    <a href="#" class="cardInfoButton">More info</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="cardHead">
+                    <img src="assets/svgs/undraw_watch_application.svg" alt="Wearable applications by unDraw">
+                </div>
+                <div class="cardBody">
+                    <h3>Design your wearable app.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, ipsam, natus. Amet, consectetur dignissimos dolor ex quam sit suscipit voluptate.</p>
+                </div>
+                <div class="cardFooter">
+                    <a href="#" class="cardInfoButton">More info</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="container">
+        <h2>Our prices</h2>
+        <div class="row">
+            <div class="columns">
+                <ul class="price">
+                    <li class="header">Basic UX</li>
+                    <li class="grey">$ 1000 (Estimated)</li>
+                    <li>Feedback on your design</li>
+                    <li>Improvements on some functions</li>
+                    <li>WCAG assessment</li>
+                    <li>A friendly chat</li>
+                    <li class="grey"><a href="#" class="button">Order</a></li>
+                </ul>
+            </div>
+            <div class="columns">
+                <ul class="price">
+                    <li class="header">Simple UX</li>
+                    <li class="grey">$ 2000 (Estimated)</li>
+                    <li>Everything from Basic UX</li>
+                    <li>Deeper analysis of your website</li>
+                    <li>Better UX</li>
+                    <li>WCAG optimizing</li>
+                    <li class="grey"><a href="#" class="button">Sign Up</a></li>
+                </ul>
+            </div>
+            <div class="columns">
+                <ul class="price">
+                    <li class="header">Redesign</li>
+                    <li class="grey">$ 5000 (Estimated)</li>
+                    <li>Redesign of your website</li>
+                    <li>A/B testing of the design</li>
+                    <li>Full UX</li>
+                    <li>EU standard</li>
+                    <li class="grey"><a href="#" class="button">Sign Up</a></li>
+                </ul>
+            </div>
+            <div class="columns">
+                <ul class="price">
+                    <li class="header">Full UX</li>
+                    <li class="grey">$ 10000 (Estimated)</li>
+                    <li>Full new design your website!</li>
+                    <li>Everything from the other options</li>
+                    <li>Full testing</li>
+                    <li>All standards followed</li>
+                    <li class="grey"><a href="#" class="button">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="ourTeam">
+        <h2>Our Team</h2>
+        <img src="assets/svgs/undraw_team_spirit.svg" alt="Our team by unDraw">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consequuntur cumque dolorem excepturi, facilis illo minus natus quibusdam quo voluptas! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem est iste natus nisi quae quibusdam sit. Ex optio quae ullam.</p>
+        <div class="cards">
+            <div class="card team">
+                <div class="img">
+                    <img src="assets/pictures/jackson-schaal-man1.png" alt="Picture by Jackson Schaal">
+                </div>
+                <div class="info">
+                    <h3>John S. Malave</h3>
+                    <p>Team Lead</p>
+                </div>
+            </div>
+            <div class="card team">
+                <div class="img">
+                    <img src="assets/pictures/makson-serpa-man1.png" alt="Picture by Makson Serpa">
+                </div>
+                <div class="info">
+                    <h3>Byron H. Ellison</h3>
+                    <p>UX designer</p>
+                </div>
+            </div>
+            <div class="card team">
+                <div class="img">
+                    <img src="assets/pictures/zoran-borojevic-man1.png" alt="Picture by Zoran Borojevic">
+                </div>
+                <div class="info">
+                    <h3>Alan J. Browning</h3>
+                    <p>Programmer</p>
+                </div>
+            </div>
+            <div class="card team">
+                <div class="img">
+                    <img src="assets/pictures/zoran-borojevic-woman1.png" alt="Picture by Zoran Borojevic">
+                </div>
+                <div class="info">
+                    <h3>Lisa T. Seals</h3>
+                    <p>Graphic designer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="ourWork">
+        <h2>Our works</h2>
+        <div class="workCards">
+            <div class="card" style="background-position:center;background-size:cover;background-repeat:no-repeat;background-image: url(assets/pictures/ph.png)"><div><a href="#"><h3>Info</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, voluptates.</p></a></div></div>
+            <div class="card" style="background-position:center;background-size:cover;background-repeat:no-repeat;background-image: url(assets/pictures/ph.png)"><div><a href="#"><h3>Info</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, voluptates.</p></a></div></div>
+            <div class="card" style="background-position:center;background-size:cover;background-repeat:no-repeat;background-image: url(assets/pictures/ph.png)"><div><a href="#"><h3>Info</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, voluptates.</p></a></div></div>
+            <div class="card" style="background-position:center;background-size:cover;background-repeat:no-repeat;background-image: url(assets/pictures/ph.png)"><div><a href="#"><h3>Info</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, voluptates.</p></a></div></div>
+            <div class="card" style="background-position:center;background-size:cover;background-repeat:no-repeat;background-image: url(assets/pictures/ph.png)"><div><a href="#"><h3>Info</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, voluptates.</p></a></div></div>
+            <div class="card" style="background-position:center;background-size:cover;background-repeat:no-repeat;background-image: url(assets/pictures/ph.png)"><div><a href="#"><h3>Info</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, voluptates.</p></a></div></div>
+            <div class="card" style="background-position:center;background-size:cover;background-repeat:no-repeat;background-image: url(assets/pictures/ph.png)"><div><a href="#"><h3>Info</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, voluptates.</p></a></div></div>
+            <div class="card" style="background-position:center;background-size:cover;background-repeat:no-repeat;background-image: url(assets/pictures/ph.png)"><div><a href="#"><h3>Info</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, voluptates.</p></a></div></div>
+            <div class="card" style="background-position:center;background-size:cover;background-repeat:no-repeat;background-image: url(assets/pictures/ph.png)"><div><a href="#"><h3>Info</h3><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, voluptates.</p></a></div></div>
+        </div>
+        <h3 class="readMore">
+            <a href="#">See more</a>
+        </h3>
+    </section>
+
+    <section class="container" id="contactUs">
+        <h2>Contact Us</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A doloribus ducimus ea eius incidunt iste iusto maiores non, obcaecati odit, provident qui quidem reiciendis vero!</p>
+        <form id="contact" action="https://www.freecodecamp.com/email-submit">
+            <label for="emailContact" class="required">Your email</label>
+            <input type="email" name="emailContact" id="emailContact" placeholder="your@email.com" value="" required />
+
+            <label for="name">Your name</label>
+            <input type="text" value="" name="name" id="name" placeholder="John / John Doe" />
+
+            <label for="description">Want to tell us something?</label>
+            <textarea name="description" id="description" placeholder="tell us why you contacted us."></textarea>
+
+            <input type="submit" value="submit" id="submitContact">
+        </form>
+    </section>
 </main>
 
-<footer></footer>
+<link rel="stylesheet" href="assets/css/mfglabs_iconset.css">
+<link rel="stylesheet" href="assets/css/style.css">
 
-
-<link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Abhaya+Libre:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 </html>
