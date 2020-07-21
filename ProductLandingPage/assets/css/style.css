@@ -25,17 +25,7 @@ h2 {
     width:100%;
     margin:auto;
 }
-.fullWidth {
-    margin:0 -100px;
-}
-.fullWidth>* {
-    max-width: 1000px;
-    width:100%;
-    margin:auto;
-}
-.fullWidthNoMax {
-    width:100%;
-}
+
 
 section {
     padding:50px 0;
@@ -48,7 +38,6 @@ section.container {
 body {
     font-size:18px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    padding:8em 100px;
 
     background-color: #efefef;
 }
@@ -65,23 +54,6 @@ body {
     background-color:#f9f9f9;
 }
 
-header>.container {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    max-width: 90%;
-}
-
-.nav-bar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    justify-items: center;
-
-    width:300px;
-}
-
 img {
     width: 100%;
     max-width: 100%;
@@ -91,40 +63,13 @@ img {
 .splashImg {
     min-height: 400px;
     height:100%;
-    max-height: 450px;
-
-
     background-image: url("../svgs/undraw_imagination.svg");
-    background-position: right;
-    background-size: 400px;
     background-repeat: no-repeat;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 
-.splashImg>div {
-    max-width:50%;
-}
 .logo {
     max-width: 60px;
-}
-
-.cards {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-}
-.card {
-    grid-column: auto;
-    padding:10px 20px;
-}
-.card .cardBody {
-    margin:20px 0;
-    text-align: center;
-    min-height: 200px;
 }
 
 #shop .card img {
@@ -162,14 +107,6 @@ img {
 }
 .cardInfoButton:hover {background-color:var(--Primary-hover);}
 .cardInfoButton:active {background-color:var(--Primary-active);}
-
-.Candra {
-    font-family: "Candara Light",Candara,sans-serif;
-    font-size: 2.5rem;
-    top: 30px;
-    position: absolute;
-    color: #525252;
-}
 #contactUs {
     border:solid 5px var(--Primary);
     padding:10px 40px;
@@ -254,9 +191,7 @@ input {
 label.required:after {
     color: orangered;
     content: " *";
-
 }
-
 
 .workCards .card {
     height:100%;
@@ -298,10 +233,154 @@ label.required:after {
     font-size: 18px;
 }
 
+
+.Candra {
+    font-family: "Candara Light",Candara,sans-serif;
+    font-size: 2.5rem;
+    color: #525252;
+}
+
 @media screen and (max-width: 700px){
+    body {
+        padding:8em 30px;
+        animation: bugfix infinite 1s;
+        -webkit-animation: bugfix infinite 1s;
+    }
+    .splashImg>div {
+        padding-top: 300px;
+    }
+    .splashImg {
+        background-position: center top;
+        background-size: 300px;
+        margin-top: 180px;
+        padding:20px;
+    }
+    .logoContainer {
+        display: inline-block;
+        padding-right: 5px;
+        margin: 0 50%;
+        width: 210px;
+        transform: translate(-75%, 0%);
+    }
+    .nav-bar a{
+        display: block;
+        text-align: center;
+    }
+    .Candra {
+        top: -10px;
+        position: relative;
+    }
+    main {
+        padding:0 20px;
+    }
+
+
+    /* Overlay button from https://codepen.io/danhearn/pen/XprGrJ */
+    @keyframes bugfix { from {padding: 0;} to {padding: 0;}}
+    @-webkit-keyframes bugfix {from {padding: 0;} to {padding: 0;}}
+    #overlay-button {position: absolute;right: 2em;top: 1.5em;padding: 26px 11px;z-index: 5;cursor: pointer;user-select: none;}
+    #overlay-button span {height: 4px;width: 35px;border-radius: 2px;background-color: var(--Primary-hover);position: relative;display: block;transition: all .2s ease-in-out;}
+    #overlay-button span:before {top: -10px;visibility: visible;}
+    #overlay-button span:after {top: 10px;}
+    #overlay-button span:before, #overlay-button span:after {height: 4px;width: 35px;border-radius: 2px;background-color: var(--Primary-hover);position: absolute;content: "";transition: all .2s ease-in-out;}
+    #overlay-button:hover span, #overlay-button:hover span:before, #overlay-button:hover span:after {background: #333332;}
+    #overlay-input {display: none;}
+    #overlay-input:checked ~ #overlay {visibility: visible;}
+    #overlay-input:checked ~ #overlay-button:hover span, input[type=checkbox]:checked ~ #overlay-button span {background: transparent;}
+    #overlay-input:checked ~ #overlay-button span:before {transform: rotate(45deg) translate(7px, 7px);opacity: 1;}
+    #overlay-input:checked ~ #overlay-button span:after {transform: rotate(-45deg) translate(7px, -7px);}
+
+    #overlay {
+        height: 100vh;
+        width: 100vw;
+        background: #f9f9f9;
+        z-index: 2;
+        display: none;
+        position: fixed;
+        top: 112px;
+        left: 0;
+    }
+    #overlay-input:checked ~ #overlay {
+        display: block;
+    }
+
+    .card {
+        margin:100px 0;
+        text-align: center;
+    }
 }
 
 @media screen and (min-width: 701px){
+    #overlay-input, #overlay-button {
+        display: none;
+    }
+    .navbarMenu {
+        display:none;
+    }
+    body {
+        padding:8em 100px;
+    }
+    .fullWidth {
+        margin:0 -100px;
+    }
+    .fullWidth>* {
+        max-width: 1000px;
+        width:100%;
+        margin:auto;
+    }
+    .fullWidthNoMax {
+        width:100%;
+    }
+
+    header>.container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        max-width: 90%;
+    }
+    .nav-bar {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        justify-items: center;
+
+        width:300px;
+    }
+    .splashImg {
+        min-height: 400px;
+        height:100%;
+        max-height: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-position: right;
+        background-size: 400px;
+    }
+    .splashImg>div {
+        max-width:50%;
+    }
+
+    .Candra {
+        top: 30px;
+        position: absolute;
+    }
+
+    .cards {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+    .card {
+        grid-column: auto;
+        padding:10px 20px;
+    }
+    .card .cardBody {
+        margin:20px 0;
+        text-align: center;
+        min-height: 200px;
+    }
+
     .workCards {
         display: grid;
         grid-gap: 20px;
