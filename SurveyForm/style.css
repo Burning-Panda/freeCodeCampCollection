@@ -92,23 +92,25 @@ body {
     font-size: 1em;
     font-family: var(--Primary-font);
 }
-
-fieldset.surveyRadios{
+fieldset {
+    border:none;
+}
+fieldset.surveyRadios .surveyRadioButtons{
     display: flex;
     flex-flow: row;
     justify-content: space-around;
 }
-fieldset.surveyRadios, fieldset.surveyCheckboxes {
+fieldset.surveyRadios .surveyRadioButtons, fieldset.surveyCheckboxes .surveyRadioButtons {
     margin-top:30px;
     padding-top:10px;
     border:0;
     border-bottom:1px solid grey;
     padding-bottom:30px;
 }
-fieldset.surveyRadios {
+fieldset.surveyRadios .surveyRadioButtons {
     height: 10em;
 }
-fieldset.surveyRadios div {
+fieldset.surveyRadios .surveyRadioButtons div {
     flex-basis: 18%;
     text-align: center;
 }
