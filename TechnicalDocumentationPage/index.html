@@ -7,8 +7,6 @@
     <meta name="keywords" content="HTML, CSS, Technical Documentation Page, Technical Documentation, freeCodeCamp, Responsive Web Design Projects">
     <meta name="author" content="André T. Lønvik">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../reset.css">
-    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 <header class="nav">
@@ -16,38 +14,271 @@
     </nav>
 </header>
 <div class="container">
-    <nav>
+    <nav id="navbar">
+        <header>
+            <h1>choreographer-js</h1>
+            <div><span class="user">Created by: Christine Cha</span></div>
+
+            <p>A simple library to take care of complicated animations.</p>
+            <p>Text fetched from: <a href="https://github.com/christinecha/choreographer-js">Github/choreographer-js</a></p>
+        </header>
         <ul>
-            <li><a href="#">list 1</a></li>
-            <li><a href="#">list 2</a></li>
-            <li><a href="#">list 3</a></li>
-            <li><a href="#">list 4</a></li>
-            <li><a href="#">list 5</a></li>
-            <li><a href="#">list 6</a></li>
-            <li><a href="#">list 7</a></li>
-            <li><a href="#">list 8</a></li>
-            <li><a href="#">list 9</a></li>
-            <li><a href="#">list 10</a></li>
+            <li><a class="nav-link" href="#Quickstart">Quickstart</a></li>
+            <li><a class="nav-link" href="#Use_Cases_+_Snippets">Use Cases + Snippets</a></li>
+            <li><a class="nav-link" href="#Get_Started">Get Started</a></li>
+            <li><a class="nav-link" href="#FULL_API_REFERENCE">Full API Reference</a></li>
+            <li><a class="nav-link" href="#Contributing">Contributing</a></li>
+            <li><a class="nav-link" href="#License">License</a></li>
         </ul>
     </nav>
     <main id="main-doc">
-        <div>
-            <h1>LIPSUM: The Lorem of Ipsum</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda commodi dicta dolorem dolorum eligendi explicabo facilis fugiat hic illo impedit, iste laboriosam molestiae mollitia neque officia possimus quasi quis quos sint temporibus!</p>
-        </div>
-        <section class="main-section">
+        <section id="Quickstart" class="main-section">
             <header>
-                <h2>The lorem strategy</h2>
+                <h2>Quickstart</h2>
             </header>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium aliquam animi consequatur, consequuntur delectus dicta dolor earum ex exercitationem explicabo fugiat fugit iste libero, magnam maiores minus nobis non odit officiis optio pariatur quaerat quibusdam quos reprehenderit sequi tempore ullam.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, at atque consequuntur doloribus ex expedita fugit illum neque odit vitae.</p>
-
-            <div class="link">
-                <p>Tutorials available <a href="#">here</a>, and a more detailed documentation can be viewed <a href="#">here</a> </p>
+            <div>
+                <p>Install and save to your package.json:</p>
+                <pre><code class="plaintext">$ npm install --save choreographer-js</code></pre>
+                <p>Include it in your Javascript:</p>
+                <pre><code class="javascript">const Choreographer = require('choreographer-js')</code></pre>
             </div>
+        </section>
+        <section id="Use_Cases_+_Snippets" class="main-section">
+            <header>
+                <h2>Use Cases + Snippets</h2>
+            </header>
+            <div>
+                <p><b>Brew up some instant scroll animations.</b> This one would scale a box's opacity from 0 to 1 mirroring your scroll location from the top to 1000. <a href="https://github.com/christinecha/choreographer-js/blob/master/examples/one.html">Full Example >></a></p>
+<pre><code class="javascript">let choreographer = new Choreographer({
+    animations: [
+        {
+            range: [-1, 1000],
+            selector: '#box',
+            type: 'scale',
+            style: 'opacity',
+            from: 0,
+            to: 1
+        }
+    ]
+})
+
+window.addEventListener('scroll', () => {
+    choreographer.runAnimationsAt(window.pageYOffset)
+})</code></pre>
+
+                <p><b>What about animations based on mouse movement?</b> This would make #box move 300px down if your mouse was in the left-half of the browser window.</p>
+<pre><code>let choreographer = new Choreographer({
+    animations: [
+        {
+            range: [-1, window.innerWidth / 2],
+            selector: '#box',
+            type: 'change',
+            style: 'transform:translateY',
+            to: 300,
+            unit: 'px'
+        }
+    ]
+})
+
+document.body.addEventListener('mousemove', (e) => {
+    choreographer.runAnimationsAt(e.clientX)
+})</code></pre>
+
+            </div>
+        </section>
+        <section id="Get_Started" class="main-section">
+            <header>
+                <h2>Get Started</h2>
+            </header>
+            <p>You can simply install the package via npm:</p>
+            <pre><code>$ npm install --save choreographer-js</code></pre>
+
+            <p>Or if you're keeping things super simple, just include this file as a script like so:</p>
+            <pre><code class="html">&lt;script src="your_path/choreographer.min.js"&gt;&lt;/script&gt;</code></pre>
+
+            <p>Cool! Now you can create an instance of Choreographer like this, and run the animations based on whatever measurement floats your boat (ex. scroll position, mouse position, timestamp, whatever).</p>
+<pre><code>let choreographer = new Choreographer(config)
+choreographer.runAnimationsAt(position)</code></pre>
+
+            <p>More often than not, you'll probably want to wrap that runAnimationsAt function in another, like an event handler, for instance:</p>
+<pre><code>window.addEventListener('scroll', () => {
+    // then, use the scroll position (pageYOffset) to base the animations off of
+    choreographer.runAnimationsAt(window.pageYOffset)
+})</code></pre>
+
+            <p>The easiest way to understand how this all works is to check out the <a href="https://github.com/christinecha/choreographer-js/tree/master/examples">examples</a>. More detailed documentation below!</p>
+        </section>
+        <section id="FULL_API_REFERENCE" class="main-section">
+            <header><h2>Full API Reference</h2></header>
+            <div>
+                <h3>Choreographer</h3>
+                <p>
+                    <span class="inline-code">[Class]</span> | The home base for everything.
+                </p>
+
+                <p>construction:</p>
+                <span class="inline-code">new Choreographer( <a href="#">choreographerConfig</a> )</span>
+                <p>public methods:</p>
+                <ul>
+                    <li>this.updateAnimations</li>
+                    <li>this.runAnimationsAt</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>choreographerConfig</h3>
+                <p><span class="inline-code">[Object]</span> | The object used to configure an instance of Choreographer.</p>
+                <p>example structure:</p>
+
+<pre><code class="javascript">{
+    customFunctions: {
+        [animation type]: [animationFunction]
+    },
+    animations: [ animationConfig, animationConfig, ... ]
+}</code></pre>
+                
+                <p>related references: <a href="">animationFunction</a>, <a href="">animationConfig</a></p>
+            </div>
+
+            <div>
+                <h3>Choreographer.updateAnimations([ Array of <a href="#">animationConfig</a> ])</h3>
+                <p><span class="inline-code">[Function]</span> | Replace this.animations with a new Array of Animations.</p>
+            </div>
+
+            <div>
+                <h3>Choreographer.runAnimationsAt([ Number ])</h3>
+                <p><span class="inline-code">[Function]</span> | Run the animations at a given location marker.</p>
+            </div>
+
+            <div>
+                <h3>Animation</h3>
+                <p><span class="inline-code">[Class]</span> | The class that manages each animation's data.</p>
+                <p>construction:</p>
+                <pre><code class="javascript">new Animation( animationConfig )</code></pre>
+            </div>
+
+
+            <div>
+                <h3>animationConfig</h3>
+                <p><span class="inline-code">[Object]</span> | The object used to configure an instance of Animation.</p>
+                <p>example structure:</p>
+<pre><code>{
+    range: [0, 100],
+    selector: '.box',
+    type: 'scale',
+    fn: [animationFunction],
+    style: 'width',
+    from: 0,
+    to: 100,
+    unit: '%'
+}</code></pre>
+                <span class="inline-code">range</span> | <span class="inline-code">[Array of Number]</span> or <span class="inline-code">[Array of Array of Number]</span>
+
+                <p>Either a one- or two-dimensional array of ranges, i.e. [0,5] or [[0,3], [4,5]]<br />
+                    <i>NOTE: Bugs will occur if you overlap animation ranges that affect the same style properties!</i></p>
+
+                <p>
+                    <span class="inline-code">type</span> | <span class="inline-code">[String]</span> <br/>
+                    <span>The name of the animation function</span>
+                </p>
+
+                <p><span class="inline-code">fn</span> | <span class="inline-code">[animationFunction]</span> see animationFunction](<a href="#">animationfunction</a>)</p>
+
+                <p>
+                    <span class="inline-code">selector</span> | <span class="inline-code">[String]</span> or <span class="inline-code">[NodeList]</span> or <span class="inline-code">[DOM Element]</span>
+                    <span>A valid DOM Element, list of elements, or selector string, ex. '.classname' or '#box .thing[data-attr=true]'</span>
+                </p>
+
+                <p><span class="inline-code">selectors</span> | <span class="inline-code">[Array]</span> An array of selector strings (as described above).</p>
+                <p><i>NOTE: Only one of the below (selector or selectors) is necessary. If they both exist, 'selectors' will be used.</i></p>
+
+                <p><span class="inline-code">style</span> | <span class="inline-code">[String]</span> A valid CSS style property OR the string "class" to toggle a classname instead. NOTE: If you are using 'transform', follow it with a colon and the property name, ex. 'transform:scaleX'</p>
+
+                <p><span class="inline-code">from</span> | <span class="inline-code">[Number]</span>
+                    The minimum value to set to the style property. Useful when progressively calculating a value.</p>
+                <p><span class="inline-code">to</span> | <span class="inline-code">[Number or String]</span> If you want progressively calculated (scaled) values, this has to be a number. Otherwise, if for something a 'change' animation, this can be a string - whatever the valid type for the relevant style property is.</p>
+
+                <p>related references: <a href="#">animationFunction</a></p>
+            </div>
+
+            <div>
+                <h3>animationFunction</h3>
+
+                <p><span class="inline-code">[Function]</span> | A function that takes animationData and does something with it.</p>
+                <p>There are two built-in animation functions available, called 'scale' and 'change'.</p>
+
+                <ul>
+                    <li>'scale' maps a progressively calculated value to the node's style property based on location</li>
+                    <li>'change' adds or takes away a style property value if you're in or out of range</li>
+                </ul>
+
+                <p>Example animationFunction (this is a simplified version of how 'change' works):</p>
+<pre><code class="javascript">(data) => {
+    // where data is an 'animationData' object (see below)
+    const newValueString = data.to + data.unit
+
+    if (data.progress > 0 && data.progress < 1) {
+        data.node.style[data.style] = newValueString
+    }
+}</code></pre>
+
+                <p>arguments: <a href="#">animationData</a></p>
+            </div>
+
+
+            <div>
+                <h3>animationData</h3>
+                <p><span class="inline-code">[Object]</span> | This is the data passed into an animationFunction. A lot of it is taken directly from animationConfig.</p>
+
+                <p>Structure:</p>
+<pre><code class="JSON">{
+    node: [DOM Element] | the element this animation will affect,
+    progress: [Number]  | a number representing the relative location of a node within a range,
+
+    // these are all taken directly from the animationConfig
+    style: (see above),
+    from: (see above),
+    to: (see above),
+    unit: (see above),
+}
+</code></pre>
+
+                <p><span class="inline-code">Progress</span> <b>is what allows for progressive scaling of values (ex. smooth fading of opacity, 2d translation, etc.)</b> If the value is between 0 and 1, that means you are within a range (given in animationConfig).</p>
+            </div>
+        </section>
+        <section id="Contributing" class="main-section">
+            <header><h2>Contributing</h2></header>
+            <ol>
+                <li>Fork it!</li>
+                <li>Create your feature branch: git checkout -b my-new-feature</li>
+                <li>Commit your changes: git commit -am 'Add some feature'</li>
+                <li>Push to the branch: git push origin my-new-feature</li>
+                <li>Submit a pull request :D</li>
+            </ol>
+
+            <p>Found an issue but don't know how to fix it? Submit an issue or email me.</p>
+
+        </section>
+        <section id="License" class="main-section">
+            <header><h2>License</h2></header>
+
+            <p>The MIT License (MIT) Copyright (c) 2016 Christine Cha</p>
+            <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+            <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+            <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
         </section>
     </main>
 </div>
 
+<link rel="stylesheet" href="assets/styles/atom-one-dark-reasonable.css">
+<link rel="stylesheet" href="../reset.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+
+<script src="assets/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 </html>
